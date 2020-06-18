@@ -16,7 +16,15 @@ let data;
 async function getData() {
   await axios.get(uri)
     .then((req) => {
-      data = req.data;
+      let idCounter = 0;
+      const attacks = [];
+      req.data.attacks.forEach((element) => {
+        const tmpObj = element;
+        tmpObj.id = idCounter;
+        idCounter += 1;
+        attacks.push(tmpObj);
+        data = attacks;
+      });
     })
     .catch((err) => {
       // eslint-disable-next-line no-console
