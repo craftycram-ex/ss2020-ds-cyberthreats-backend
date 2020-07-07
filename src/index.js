@@ -41,7 +41,7 @@ app.get('/', async (req, res) => {
   res.status(200).send(data);
 });
 
-app.get('countrys', async (req, res) => {
+app.get('/countrys', async (req, res) => {
   let countrys = [];
 
   for (const key in data.attacks) {
