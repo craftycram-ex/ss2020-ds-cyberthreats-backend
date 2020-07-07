@@ -41,6 +41,23 @@ app.get('/', async (req, res) => {
   res.status(200).send(data);
 });
 
+app.get('countrys', async (req, res) => {
+  let countrys = [];
+
+  for (const key in data.attacks) {
+    const attack = data.attacks[key];
+    countrys.push(attack.OriginCode);
+    countrys.push(attack.Destination);
+  }
+
+  countrys = countrys.map((country) => country);
+  countrys = countrys.filter((a, b) => countrys.indexOf(a) === b);
+
+  const output = { countrys };
+
+  res.status(200).send(output);
+});
+
 // Server starten
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
