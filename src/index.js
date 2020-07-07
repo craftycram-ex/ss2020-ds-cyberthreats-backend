@@ -51,6 +51,7 @@ app.get('/countrys', async (req, res) => {
 
   countrys = countrys.map((country) => country);
   countrys = countrys.filter((a, b) => countrys.indexOf(a) === b);
+  countrys = countrys.sort();
 
   const output = { countrys };
 
