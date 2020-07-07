@@ -44,11 +44,10 @@ app.get('/', async (req, res) => {
 app.get('/countrys', async (req, res) => {
   let countrys = [];
 
-  for (const key in data.attacks) {
-    const attack = data.attacks[key];
+  data.forEach((attack) => {
     countrys.push(attack.OriginCode);
     countrys.push(attack.Destination);
-  }
+  });
 
   countrys = countrys.map((country) => country);
   countrys = countrys.filter((a, b) => countrys.indexOf(a) === b);
