@@ -66,4 +66,6 @@ app.get('/countrys', async (req, res) => {
 https.createServer({
   key: fs.readFileSync('./privkey.pem'),
   cert: fs.readFileSync('./cert.pem'),
-}, app).listen(3000);
+}, app).listen(3000, () => {
+  console.log('Server online auf port 3000');
+});
