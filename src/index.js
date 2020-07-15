@@ -68,7 +68,7 @@ app.get('/countrys', async (req, res) => {
 });
 
 // Server starten
-app.listen(3000, () => {
+https.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.log('\n[INFO]: Example app listening on port 3000!\n');
 });
