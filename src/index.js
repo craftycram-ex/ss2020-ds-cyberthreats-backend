@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 https.createServer({
-  key: fs.readFileSync('.privkey.pem'),
-  cert: fs.readFileSync('.cert.pem'),
+  key: fs.readFileSync('./privkey.pem'),
+  cert: fs.readFileSync('./cert.pem'),
 }, app);
 
 // variable inits
