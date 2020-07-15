@@ -45,10 +45,12 @@ setInterval(getData, 1000000);
 
 // webserver endpoints
 app.get('/', async (req, res) => {
+  console.log('Access');
   res.status(200).send(data);
 });
 
 app.get('/countrys', async (req, res) => {
+  console.log('Access');
   let countrys = [];
 
   data.forEach((attack) => {
