@@ -2,11 +2,18 @@
 const axios = require('axios').default;
 const express = require('express');
 const cors = require('cors');
+const https = require('https');
+const fs = require('fs');
 
 // Library inits
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+https.createServer({
+  key: fs.readFileSync('.privkey.pem'),
+  cert: fs.readFileSync('.cert.pem'),
+}, app);
 
 // variable inits
 const uri = 'https://www.fireeye.com/content/dam/legacy/cyber-map/weekly_sanitized.min.js';
