@@ -10,11 +10,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-https.createServer({
-  key: fs.readFileSync('./privkey.pem'),
-  cert: fs.readFileSync('./cert.pem'),
-}, app);
-
 // variable inits
 const uri = 'https://www.fireeye.com/content/dam/legacy/cyber-map/weekly_sanitized.min.js';
 let data;
@@ -68,7 +63,7 @@ app.get('/countrys', async (req, res) => {
 });
 
 // Server starten
-https.listen(3000, () => {
-  // eslint-disable-next-line no-console
-  console.log('\n[INFO]: Example app listening on port 3000!\n');
-});
+https.createServer({
+  key: fs.readFileSync('./privkey.pem'),
+  cert: fs.readFileSync('./cert.pem'),
+}, app).listen(3000);
