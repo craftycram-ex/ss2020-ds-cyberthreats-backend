@@ -2,8 +2,7 @@
 const axios = require('axios').default;
 const express = require('express');
 const cors = require('cors');
-const https = require('https');
-const fs = require('fs');
+const http = require('http');
 
 // Library inits
 const app = express();
@@ -63,9 +62,6 @@ app.get('/countrys', async (req, res) => {
 });
 
 // Server starten
-https.createServer({
-  key: fs.readFileSync(`${process.env.CERTS_DIR}privkey.pem`),
-  cert: fs.readFileSync(`${process.env.CERTS_DIR}cert.pem`),
-}, app).listen(3000, () => {
+http.createServer(app).listen(3000, () => {
   console.log('Server online auf port 3000');
 });
